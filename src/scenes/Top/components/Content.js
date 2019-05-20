@@ -5,7 +5,6 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { bold } from 'ansi-colors';
 
 
 const Content = (props) => (
@@ -17,10 +16,10 @@ const Content = (props) => (
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Title><Company>{internInfo["会社(A→Z)"]}</Company><br/>{internInfo.タイトル}</Title>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      <ExpansionPanelDetails style={{paddingLeft: 10, paddingRight: 10}}>
       <InfoWrapper >
         {Object.keys(internInfo).map((i) => (
-
+          i === "会社(A→Z)" || i === "タイトル" ? null :
           i === "URL" ?
           <Info><InfoTitle>{i}</InfoTitle><InfoContent><a href={internInfo[i]}>こちら</a></InfoContent></Info> :
           i === "必要な(もしくはあると良い)スキル・経験" ?
