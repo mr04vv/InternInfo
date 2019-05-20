@@ -19,7 +19,7 @@ const Content = (props) => (
       <ExpansionPanelDetails style={{paddingLeft: 10, paddingRight: 10}}>
       <InfoWrapper >
         {Object.keys(internInfo).map((i) => (
-          i === "会社(A→Z)" || i === "タイトル" ? null :
+          i === "会社(A→Z)" || i === "タイトル" || i === "内容" ? null :
           i === "URL" ?
           <Info><InfoTitle>{i}</InfoTitle><InfoContent><a href={internInfo[i]}>こちら</a></InfoContent></Info> :
           i === "必要な(もしくはあると良い)スキル・経験" ?
@@ -61,11 +61,7 @@ const Title = styled(Typography)`
 const InfoWrapper = styled("div")`
   width: 100%;
   margin: 10px auto;
-  padding: 0 20px;
-  @media (max-width: 420px) {
-    width: 100%;    
-    padding: 0;
-  }
+  padding: 0;
 `;
 
 const Info = styled("div")`
