@@ -98,7 +98,7 @@ const mapStateToProps = state => ({
 
 const Loading = styled(CircularProgress)`
   display: block !important;
-  margin: 30% auto;
+  margin: 20% auto;
 `;
 
 const PageWrapper = styled("div")`
