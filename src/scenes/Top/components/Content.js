@@ -21,7 +21,7 @@ const Content = (props) => (
         {Object.keys(internInfo).map((i) => (
           i === "会社(A→Z)" || i === "タイトル" || i === "内容" ? null :
           i === "URL" ?
-          <Info><InfoTitle>{i}</InfoTitle><InfoContent><a href={internInfo[i]}>こちら</a></InfoContent></Info> :
+          <Info><InfoTitle>{i}</InfoTitle><InfoContent><a target="__brank" href={internInfo[i]}>こちら</a></InfoContent></Info> :
           i === "必要な(もしくはあると良い)スキル・経験" ?
           <Info><InfoTitle>歓迎スキル</InfoTitle><InfoContent>{internInfo[i]}</InfoContent></Info> :
           <Info><InfoTitle>{i}</InfoTitle><InfoContent>{internInfo[i]}</InfoContent></Info> 
