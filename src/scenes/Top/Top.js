@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import ContentList from './components/Content';
-import { connect } from "react-redux";
-import { fetchInternInfo } from "../../redux/modules/interninfo/InternInfo";
-import CircularProgress from '@material-ui/core/CircularProgress';
-import styled from '@emotion/styled';
-import TablePagination from '@material-ui/core/TablePagination';
-import { TablePaginationActionsWrapped } from './components/TablePageActions';
+import React, { Fragment } from 'react'
+import ContentList from './components/Content'
+import { connect } from "react-redux"
+import { fetchInternInfo } from "../../redux/modules/interninfo/InternInfo"
+import CircularProgress from '@material-ui/core/CircularProgress'
+import styled from '@emotion/styled'
+import TablePagination from '@material-ui/core/TablePagination'
+import { TablePaginationActionsWrapped } from './components/TablePageActions'
 
 class Top extends React.Component {
 
@@ -15,37 +15,36 @@ class Top extends React.Component {
       isLoading: true,
       expanded: false,
       page: 0
-    }
+    };
   }
 
   componentDidMount() {
     this.props.fetchInternInfo().then(() => {
       this.setState({
         isLoading: false
-      })
-    })
+      });
+    });
   }
+
   handleChangePage = (event, page) => {
     this.setState({ page });
-  };
+  }
 
   handleChangeRowsPerPage = event => {
     this.setState({ page: 0, rowsPerPage: event.target.value });
-  };
+  }
 
 
   handleChange (index, expanded) {
     this.setState({
       expanded: !expanded ? index : false,
     });
-  };
+  }
 
   render() {
     return (
-      // <div>aaaa</div>
       !this.state.isLoading ?
       <Fragment>
-        
       <ContentList internInfoList={this.props.internInfo} expanded={this.state.expanded} handleChange={(index,expanded) => this.handleChange(index,expanded)} page={this.state.page}/>
       <PageWrapper>
       <TablePagination
@@ -59,16 +58,16 @@ class Top extends React.Component {
         ActionsComponent={TablePaginationActionsWrapped}
                 />
       </PageWrapper>
-      <Creator>created by <CreaterName href={"https://mooriii.com"} target="__brank">Takuto Mori</CreaterName></Creator>
+      <Creator>created by <CreatorName href={"https://mooriii.com"} target="__brank">Takuto Mori</CreatorName></Creator>
       </Fragment> :
       <Loading/>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   fetchInternInfo: () => dispatch(fetchInternInfo())
-})
+});
 
 const mapStateToProps = state => ({
   internInfo: state.fetchInternInfo.data
@@ -96,5 +95,6 @@ const CreatorName = styled("a")`
     cursor: pointer;
   }
 `;
-export default connect(mapStateToProps,mapDispatchToProps)(Top)
+
+export default connect(mapStateToProps,mapDispatchToProps)(Top);
 

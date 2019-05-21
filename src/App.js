@@ -1,5 +1,5 @@
 import React from 'react';
-import Top from './scenes/Top/Top'
+import Top from './scenes/Top/Top';
 import { Provider } from "react-redux";
 import configureStore from "./redux";
 

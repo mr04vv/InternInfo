@@ -16,7 +16,7 @@ const ContentDetail = (props) => (
   // keyが長いので短くする
   <Info><InfoTitle>歓迎スキル</InfoTitle><InfoContent>{props.internInfo[props.keyName]}</InfoContent></Info> :
   <Info><InfoTitle>{props.keyName}</InfoTitle><InfoContent>{props.internInfo[props.keyName]}</InfoContent></Info> 
-)
+);
 
 const Content = (props) => (
   <ExpansionPanel expanded={props.expanded === props.index+1} onClick={() => props.handleChange(props.index+1,props.expanded === props.index+1)}>
@@ -31,7 +31,7 @@ const Content = (props) => (
       </InfoWrapper>
       </ExpansionPanelDetails>
   </ExpansionPanel>
-)
+);
 
 const ContentList = (props) => (
   <ContentWrapper>
@@ -41,9 +41,9 @@ const ContentList = (props) => (
       <Content index={index} internInfo={internInfo} expanded={props.expanded} handleChange={(index,expanded) => props.handleChange(index,expanded)}/>
     ))}
   </ContentWrapper>
-)
+);
 
-export default ContentList
+export default ContentList;
 
 const ContentWrapper = styled("div")`
   font-family: sans-serif;
@@ -63,7 +63,7 @@ const Company = styled("div")`
 const Title = styled(Typography)`
   font-size: 12px !important;
   margin: 18px 0;
-`
+`;
 
 const InfoWrapper = styled("div")`
   width: 100%;
