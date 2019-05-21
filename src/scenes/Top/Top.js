@@ -59,7 +59,7 @@ class Top extends React.Component {
         ActionsComponent={TablePaginationActionsWrapped}
                 />
       </PageWrapper>
-      <Creater>created by <CreaterName href={"https://mooriii.com"} target="__brank">Takuto Mori</CreaterName></Creater>
+      <Creator>created by <CreaterName href={"https://mooriii.com"} target="__brank">Takuto Mori</CreaterName></Creator>
       </Fragment> :
       <Loading/>
     )
