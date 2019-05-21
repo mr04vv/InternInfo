@@ -74,10 +74,6 @@ export function fetchInternInfo(id) {
     return client.get(``).then(
       res => {
         const payload = res.data;
-        // APIを叩いたときに返ってくるデータが以下の２パターンある
-        // - payload.bodyのなかにデータがあるパターン
-        // - payloadのなかにデータがあるパターン
-        // どちらでもいけるように分岐
         if (payload.body) {
           dispatch(fetchSuccess(payload.body));
         } else {
