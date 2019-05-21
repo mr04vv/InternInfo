@@ -48,7 +48,7 @@ export default ContentList
 const ContentWrapper = styled("div")`
   font-family: sans-serif;
   width: 80%;
-  margin: 50px auto;
+  margin: 50px auto 10px;
   @media (max-width: 420px) {
     width: 100%;    
     margin: 30px auto;

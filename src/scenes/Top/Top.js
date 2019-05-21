@@ -59,6 +59,7 @@ class Top extends React.Component {
         ActionsComponent={TablePaginationActionsWrapped}
                 />
       </PageWrapper>
+      <Creater>created by <CreaterName href={"https://mooriii.com"} target="__brank">Takuto Mori</CreaterName></Creater>
       </Fragment> :
       <Loading/>
     )
@@ -80,8 +81,20 @@ const Loading = styled(CircularProgress)`
 
 const PageWrapper = styled("div")`
   width: fit-content;
-  margin: 30px auto;
+  margin: 0 auto 30px;
 `;
 
+const Creator = styled("div")`
+  font-size: 11px;
+  color: gray;
+  width: fit-content;
+  margin: 5px auto;
+`;
+
+const CreatorName = styled("a")`
+  :hover{
+    cursor: pointer;
+  }
+`;
 export default connect(mapStateToProps,mapDispatchToProps)(Top)
 
