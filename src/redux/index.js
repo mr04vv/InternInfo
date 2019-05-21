@@ -15,13 +15,7 @@ if (process.env.DEBUG === "true") {
     composeEnhancers(applyMiddleware(thunk, logger))
   );
 } else {
-  const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-store = createStore(
-  reducer,
-  composeEnhancers(applyMiddleware(thunk, logger))
-);
-  // store = createStore(reducer, applyMiddleware(thunk));
+  store = createStore(reducer, applyMiddleware(thunk));
 }
 
 /**
