@@ -108,6 +108,9 @@ const Privacy = styled("div")`
   font-size: 10px;
   color: gray;
   margin: 20px auto;
+  @media (max-width: 420px) {
+    width: 100%;
+  }
 `;
 
 export default connect(mapStateToProps,mapDispatchToProps)(Top);
