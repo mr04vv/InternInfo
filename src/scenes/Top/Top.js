@@ -14,13 +14,19 @@ class Top extends React.Component {
     this.state = {
       isLoading: true,
       expanded: false,
+      internInfoList: null,
       page: 0
     };
   }
 
   componentDidMount() {
+    
+
     this.props.fetchInternInfo().then(() => {
+      const list = this.props.internInfo.filter(info => info["会社(A→Z)"] != null)
+      console.debug(this.props.internInfo)
       this.setState({
+        internInfoList: list,
         isLoading: false
       });
     });
@@ -45,12 +51,12 @@ class Top extends React.Component {
     return (
       !this.state.isLoading ?
       <Fragment>
-      <ContentList internInfoList={this.props.internInfo} expanded={this.state.expanded} handleChange={(index,expanded) => this.handleChange(index,expanded)} page={this.state.page}/>
+      <ContentList internInfoList={this.state.internInfoList} expanded={this.state.expanded} handleChange={(index,expanded) => this.handleChange(index,expanded)} page={this.state.page}/>
       <PageWrapper>
       <TablePagination
         rowsPerPageOptions={[5]}
         colSpan={3}
-        count={this.props.internInfo.length}
+        count={this.state.internInfoList.length}
         rowsPerPage={10}
         page={this.state.page}
         onChangePage={this.handleChangePage}

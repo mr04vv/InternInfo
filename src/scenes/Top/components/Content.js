@@ -19,6 +19,8 @@ const ContentDetail = (props) => (
 );
 
 const Content = (props) => (
+  props.internInfo["会社(A→Z)"] == "" && props.internInfo["内容"] == "以下締切済" ?
+  <DeadLine>以下締切済</DeadLine>:
   <ExpansionPanel expanded={props.expanded === props.index+1} onClick={() => props.handleChange(props.index+1,props.expanded === props.index+1)}>
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Title><Company>{props.internInfo["会社(A→Z)"]}</Company><br/>{props.internInfo.タイトル}</Title>
@@ -31,6 +33,8 @@ const Content = (props) => (
       </InfoWrapper>
       </ExpansionPanelDetails>
   </ExpansionPanel>
+
+
 );
 
 const ContentList = (props) => (
@@ -88,4 +92,10 @@ const InfoContent = styled("div")`
   @media (max-width: 420px) {
     width: 250px;    
   }
+`;
+
+const DeadLine = styled("div")`
+  margin: 15px auto;
+  font-weight: bold;
+  text-align: center;
 `;
