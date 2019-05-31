@@ -59,6 +59,13 @@ class Top extends React.Component {
                 />
       </PageWrapper>
       <Creator>created by <CreatorName href={"https://mooriii.com"} target="__brank">Takuto Mori</CreatorName></Creator>
+      <Privacy>当サイトでは、アクセス解析のためにGoogleアナリティクスを使用しています。
+ 
+ このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。
+ このトラフィックデータは匿名で収集されており、個人を特定するものではありません。
+ この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
+ なおこの規約に関しまして、詳細は<a href={"https://www.google.com/analytics/terms/jp.html"}>Googleアナリティクス利用規約</a>
+ にてご確認ください。</Privacy>
       </Fragment> :
       <Loading/>
     );
@@ -93,6 +100,16 @@ const Creator = styled("div")`
 const CreatorName = styled("a")`
   :hover{
     cursor: pointer;
+  }
+`;
+
+const Privacy = styled("div")`
+  width: 80%;
+  font-size: 10px;
+  color: gray;
+  margin: 20px auto;
+  @media (max-width: 420px) {
+    width: 100%;
   }
 `;
 
